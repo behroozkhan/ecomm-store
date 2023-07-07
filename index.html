@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecom Store</title>
+    <!-- google font Cdn  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-I8DMeNnTdfQjOxRoCVWAGiY90Dow/A2rPwr0RZp8R+X8EsUigWXEMhhaKbJraG9qYN2eBy2VTkeU0n0gMibdUQ=="
+        crossorigin="anonymous" />
+
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-I8DMeNnTdfQjOxRoCVWAGiY90Dow/A2rPwr0RZp8R+X8EsUigWXEMhhaKbJraG9qYN2eBy2VTkeU0n0gMibdUQ=="
+        crossorigin="anonymous" />
+
+    <!-- there is my styleSheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- main top head container -->
+    <header>
+        <div class="main-top-container">
+            <div class="top-container">
+                <p id="top-para">
+                    <span id="top-span">
+                        free shipping
+                    </span>
+                    world wide for all orders over $199
+                </p>
+            </div>
+            <div class="right-top-container">
+                <a id="store-location" href="#">Store Location</a>
+                <ul class="currency">
+                    <li>
+                        USD($)
+                        <img id="caret" src="./images/arrow-down-angle-svgrepo-com.svg" alt="caret">
+                    </li>
+                </ul>
+                <ul class="language">
+                    <li>English
+                        <img id="caret" src="./images/arrow-down-angle-svgrepo-com.svg" alt="caret">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="head-middle-container"> <!-- Added head-middle-center class -->
+            <div class="middle-container">
+                <img id="main-logo" src="./images/web-logo.webp" alt="logo">
+            </div>
+            <nav class="navbar">
+                <ul class="nabar-list">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="store-icon">
+                <div class="user-icon">
+                    <a id="icon-svg" href="./login-register.html"><img src="./images/user-icon.gif" alt="user-gif"
+                            width="10" height="10"></a>
+                </div>
+                <div class="heart-icon">
+                    <a href="#"><img src="./images/heart-icon.gif" alt="heart-gif"></a>
+                </div>
+                <div class="cart-icon">
+                    <a href="#"><img src="./images/cart-icon.gif" alt="cart-gif"></a>
+                </div>
+            </div>
+        </div>
+        <div class="head-bottom-container">
+            <div class="drop-down-menu">
+                <img id="hamburger-menu" src="./images/hamburger-icon.svg" alt="hamburger">
+                <span>All Departments</span>
+                <img style="color: white;" id="open-caret" src="./images/arrow-down-angle-svgrepo-com.svg" alt="">
+            </div>
+            <!-- <div class="search-bar">
+            <input type="text" placeholder="Search Products...">
+            <button><img src="./images/magnifying-glass-icon.png" alt="magnifying-glass"></button>
+        </div> -->
+            <div class="search-container">
+                <input type="text" placeholder="Search Products..." class="search-input">
+                <select class="category-select">
+                    <option value="">All Categories</option>
+                    <option value="category1">Category 1</option>
+                    <option value="category2">Category 2</option>
+                    <!-- Add more options for categories -->
+                </select>
+                <button id="button" type="submit" class="search-button"><img src="./images/magnifying-glass-icon.png"
+                        alt="magnifying-glass"></button>
+            </div>
+
+            <div class="offer-spam">
+                <h3>50%OFF</h3>
+                <h4>Firday Deal</h4>
+            </div>
+        </div>
+    </header>
+    <!-- home section -->
+    <!-- <section>
+        <div class="home-container">
+            <input type="radio" name="position" checked />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <main id="carousel">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <main>
+        </div>
+        <main>
+
+            <div class="home-container">
+                <div id="crousal">
+
+                    <div class="class-item">
+                        <div id="crousal-img">
+                            
+                            <p id="para">Initial paragraph text</p>
+                            <h2 id="title">Initial title text</h2>
+                        </div>
+                    </div>
+                <input type="radio" name="position" id="radio1" checked />
+                <input type="radio" name="position" id="radio2" />
+                <input type="radio" name="position" id="radio3" />
+                <input type="radio" name="position" id="radio4" />
+                <input type="radio" name="position" id="radio5" />
+                
+            </div>
+            
+        </div>
+    </main>
+    </section>
+
+ -->
+    <section>
+        <!-- home main conatiner -->
+        <div class="home-container">
+            <div class="home-with-title-img-container">
+
+                <div class="home-layout">
+                    <h4>New Arrivals</h4>
+                    <h2>Leather Simple <br> bacpacks</h2>
+                    <p>Discover our collection with leather <br> simple backpacks. Less is more <br> never out trend.
+                    </p>
+                    <div class="btn-style">
+                        <a id="explore-now" href="#"><span>Explore Now</span>
+                        </a>
+                    </div>
+                    <div class="radio-style">
+                        <input class="crousal" type="radio" name="crousal">
+                        <input class="crousal" type="radio" name="crousal">
+                        <input class="crousal" type="radio" name="crousal">
+                    </div>
+                </div>
+                <div class="image">
+                    <div class="img-1">
+                        <img src="./images/bg-1.webp" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <!-- row-home-end-container End Side Container  -->
+            <div class="row-home-end-container">
+                <!-- <div class="row-cart-1">
+            <div class="row-banner-1">
+                <span>20x absorbs</span>
+                <h2>Triple <br>guards</h2>
+                <div class="product-available-wrap">
+                    <div class="single-product-available">
+                        <h3>6</h3>
+                        <span>pack</span>
+                    </div>
+                    <div class="single-product-available">
+                        <h3>124</h3>
+                        <span>diapers</span>
+                    </div>
+                    <div class="cart-img">
+                        <img src="./images/layout-one.webp" alt="" width="50" height="50">
+                    </div>
+                </div>
+            </div>
+        </div> -->
+                <div class="row-cart-1">
+                    <div class="product-available-wrap-1">
+                        <div class="content-cart-1">
+                            <div class="row-banner-1">
+                                <span>20x absorbs</span>
+                                <h2>Triple <br>guards</h2>
+                                <div class="product-available-wrap">
+                                    <div class="single-product-available">
+                                        <h3>6</h3>
+                                        <span>pack</span>
+                                    </div>
+                                    <div class="single-product-available">
+                                        <h3>124</h3>
+                                        <span>diapers</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrap-img-1">
+                            <img src="./images/diapers.png" alt="diapers">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row-cart-2">
+                    <div class="product-available-wrap">
+                        <div class="content">
+                            <span>BkB</span>
+                            <h2>head <br>phone</h2>
+                            <p>new version 4.0 for new era</p>
+                        </div>
+                        <div class="cart-img-2">
+                            <img id="headphone" src="./images/headphone.png" alt="headphone">
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End OF row-home-end-container End Side Container  -->
+        </div> <!-- End Of home main conatiner -->
+
+        <!-- this section for services -->
+    </section>
+    <section class="service-area">
+        <div class="service-container">
+            <div class="sevice-border">
+                <!-- Content of the service area -->
+                <div class="free-shiping">
+                    <div class="svg-images">
+                        <img src="./images/cursor.png" alt="refresh">
+                    </div>
+                    <div class="service-info">
+                        <h2>Free Shiping</h2>
+                        <p>order over RS599</p>
+                    </div>
+                </div>
+                <div class="return">
+                    <div class="svg-images">
+                        <img src="./images/refresh.png" alt="refresh">
+                    </div>
+                    <div class="service-info">
+                        <h2>90 Days Return</h2>
+                        <p>for any problem</p>
+                    </div>
+                </div>
+                <div class="payment">
+                    <div class="svg-images">
+                        <img src="./images/payment.png" alt="payment">
+                    </div>
+                    <div class="service-info">
+                        <h2>Secure Payment</h2>
+                        <p>100% Gurrantee</p>
+                    </div>
+                </div>
+                <div class="support">
+                    <div class="svg-images">
+                        <img src="./images/earphone-svg.svg" alt="earphone">
+                    </div>
+                    <div class="service-info">
+                        <h2>24h Support</h2>
+                        <p>Dedicated support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- this section for product -->
+    <section class="product-area">
+        <div class="product-container">
+            <div class="product-title">
+                <div class="product-deal">
+                    <div class="product-title-deal">
+                        <h2>Flash Deal</h2>
+                    </div>
+                    <div class="product-timing">
+                        <div class="images-speedometer">
+                            <img src="./images/speedometer.png" alt="speedometer">
+                        </div>
+                        <h4>Expires in:</h4>
+                        <div class="countdown">
+                            <p>The countdown is finished!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-style-all-product">
+                    <a href="shop.html">All Product</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="app.js"></script>
+</body>
+
+</html>
