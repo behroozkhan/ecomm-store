@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Regiter</title>
+
+
+    <!-- google font Cdn  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-I8DMeNnTdfQjOxRoCVWAGiY90Dow/A2rPwr0RZp8R+X8EsUigWXEMhhaKbJraG9qYN2eBy2VTkeU0n0gMibdUQ=="
+        crossorigin="anonymous" />
+
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-I8DMeNnTdfQjOxRoCVWAGiY90Dow/A2rPwr0RZp8R+X8EsUigWXEMhhaKbJraG9qYN2eBy2VTkeU0n0gMibdUQ=="
+        crossorigin="anonymous" />
+        
+    <link rel="stylesheet" href="login-register.css">
+</head>
+
+<body>
+    <!-- main top head container -->
+    <header>
+        <div class="main-top-container">
+            <div class="top-container">
+                <p id="top-para">
+
+                    <img src="../images/cursor.png" alt="refresh">
+                    <span id="top-span">
+                        free shipping
+                    </span>
+                    world wide for all orders over
+                    <span>$199</span>
+                </p>
+            </div>
+            <div class="right-top-container">
+                <a id="store-location" href="#">Track Your Order</a>
+                <ul class="currency">
+                    <li>
+                        USD($)
+                        <img id="caret" src="../images/arrow-down-angle-svgrepo-com.svg" alt="caret">
+                    </li>
+                </ul>
+                <ul class="language">
+                    <li>English
+                        <img id="caret" src="../images/arrow-down-angle-svgrepo-com.svg" alt="caret">
+                    </li>
+                </ul>
+            </div>
+            <div class="icon-container">
+                <a class="svg-icon" href="#"><img src="../images/linkdin.svg" alt="linkdin"></a>
+                <a class="svg-icon" href="#"><img src="../images/github.svg" alt="github"></a>
+                <a class="svg-icon" href="#"><img src="../images/facebook.svg" alt="facebook"></a>
+            </div>
+        </div>
+        <!-- middle navbar -->
+        <div class="head-middle-container"> <!-- Added head-middle-center class -->
+            <div class="middle-container">
+                <img id="main-logo" src="../images/web-logo.webp" alt="logo">
+            </div>
+            <nav class="navbar">
+                <ul class="nabar-list">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="store-icon">
+                <div class="user-icon">
+                    <a id="icon-svg" href="../login-register.html"><img src="../images/user-icon.gif" alt="user-gif"
+                            width="10" height="10"></a>
+                </div>
+                <div class="heart-icon">
+                    <a href="#"><img src="../images/heart-icon.gif" alt="heart-gif"></a>
+                </div>
+                <div class="cart-icon">
+                    <a href="#"><img src="../images/cart-icon.gif" alt="cart-gif"></a>
+                </div>
+            </div>
+        </div>
+        <!-- home and register section -->
+        <section>
+            <div class="home-register-container">
+                <ul>
+                    <li id="home"><a href="../index.html">Home</a></li>
+                    <!-- <span>/</span> -->
+                    <li class="active">Login - Register</li>
+                </ul>
+            </div>
+        </section>
+        <!-- This section For Login And Register -->
+        <section>
+            <div class="login-register-container">
+                <div class="display-container">
+                    <div class="h4-headings">
+                        <h4 class="login-color-change" id="login"> Login</h4>
+                        <span>|</span>
+                        <h4 class="register-color-change" id="register">Register</h4>
+                    </div>
+                    <div id="inner-login-toggle" class="inner-login-reg inner-container">
+                        <div class="input-container" id="login-toggle">
+                            <div class="input-feilds">
+                                <input class="input" type="email" id="email-log" placeholder="email">
+                                <input class="input" type="password" id="password-log" placeholder="password">
+                            </div>
+                            <div class="confirm-chbox-container">
+                                <input type="checkbox" id="remember-inp">
+                                <label id="remember-me">Remember me</label>
+                                <a href="#"><span>Forgot Password?</span></a>
+                            </div>
+                            <div class="btn">
+                                <button id="login-button">LogIn</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </div>
+            </div> -->
+                    <!-- <div class="login-register-container">
+                <div  class="display-container"> -->
+
+                    <div id="inner-login-toggle" class="inner-login-reg inner-container">
+                        <div class="input-container input-register">
+                            <div class="input-feilds" id="toogle-register">
+                                <input class="input" type="username" id="username-reg" placeholder="username">
+                                <input class="input" type="email" id="email-reg" placeholder="email">
+                                <input class="input" type="password" id="password-reg" placeholder="password">
+                            </div>
+                            <!-- <div class="confirm-chbox-container">
+                                <input type="checkbox" id="remember-inp">
+                                <label id="remember-me">Remember me</label>
+                                <a href="#"><span>Forgot Password?</span></a>
+                            </div> -->
+                            <button id="register-button">Register</button>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                    <!-- <div id="inner-register-toggle" class="inner-reg inner-container">
+                <div class="input-reg-container input-container">
+                    <div id="input-feilds-reg" class="input-feilds">
+                        <input class="input" type="username" id="username-reg" placeholder="username">
+                        <input class="input" type="email" id="email-reg" placeholder="email">
+                        <input class="input" type="password" id="password-reg" placeholder="password">
+                    </div>
+                    <div class="btn">
+                        <button id="register-button">Register</button>
+                    </div>
+                </div>
+        </div> -->
+                    <!-- </div>
+        </div> -->
+        </section>
+
+        <!-- <section>
+        </section> -->
+        <script type="module" src="login.js"></script>
+        <script type="module" src="register.js"></script>
+        <script type="module" src="../app.js"></script>
+</body>
+
+</html>
