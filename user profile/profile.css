@@ -6,7 +6,19 @@ body{
   font-family: "Exo 2", sans-serif;
   color: #333;
 }
+.profile-container{
+    background: url(../images/profile-bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    border: px solid black;
 
+}
 .card{
   position: relative;
   width: 315px; /* Remove for full width */
