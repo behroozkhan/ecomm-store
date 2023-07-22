@@ -160,6 +160,7 @@
   box-sizing: border-box;
   gap: 2em;
   padding: 10px;
+  cursor: pointer;
 }
 
 .head-middle-container .store-icon {
