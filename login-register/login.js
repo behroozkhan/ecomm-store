@@ -56,9 +56,6 @@ const firebaseConfig = {
       console.log("location==>",location.href);
       // ...
     } else {
-        if(location.pathname !== "../index.html" && location.pathname !== "../user profile/profile.html"){
-          location.href = "../index.html"
-        }
       console.log("user sign out");
       // User is signed out
       // ...

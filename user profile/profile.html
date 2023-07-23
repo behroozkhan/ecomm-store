@@ -17,7 +17,7 @@
  <!-- middle navbar -->
  <div class="head-middle-container"> <!-- Added head-middle-center class -->
   <div class="middle-container">
-      <img id="main-logo" src="../images/web-logo.webp" alt="logo">
+      <a href="../index.html"><img id="main-logo" src="../images/web-logo.webp" alt="logo"></a>
   </div>
   <nav class="navbar">
       <ul class="nabar-list">
@@ -28,11 +28,8 @@
           <li><a href="#">Contact</a></li>
       </ul>
   </nav>
-  <div class="store-icon">
-      <div class="user-icon">
-          <a id="icon-svg" href="../login-register.html"><img src="../images/user-icon.gif" alt="user-gif"
-                  width="10" height="10"></a>
-      </div>
+  <div class="logout-container">
+          <button id="logout-btn">Logout</button>
       <!-- <div class="heart-icon">
           <a href="#"><img src="../images/heart-icon.gif" alt="heart-gif"></a>
       </div>
@@ -41,12 +38,20 @@
       </div> -->
   </div>
 </div>
+
 <main class="container">
   <div class="card">
-    <img src="../images/bk linkedin profile.jpg" alt="User image" class="card__image" />
+    <img id="user-profile" src="../images/bk linkedin profile.jpg" alt="User image" class="card__image" />
+    <label class="camera-icon" for="file-input">
+      <img  src="../images/camera.svg" alt="camera icon">
+  </label>
+  <input type="file" style="display: none;" id="file-input">
     <div class="card__text">
-      <h2>Behrooz Khan</h2>
-      <p>I am enjoy to Smash People face and Ass</p>
+      <!-- <input type="text" id="name">
+      <input type="email" id="email"> -->
+      <h2 id="name">Behrooz Khan</h2>
+      <h3 id="email">kbehrooz412@gmail.com</h3>
+      <p id="bio">I am enjoy to Smash People face and Ass</p>
     </div>
      <br><br>
     <!-- <ul class="card__info">

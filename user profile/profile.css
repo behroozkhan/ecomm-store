@@ -24,17 +24,24 @@ body {
   padding: 10px;
 }
 
-.head-middle-container .store-icon {
+.head-middle-container .logout-container {
   display: flex;
   justify-content: center;
   align-content: center;
-  gap: 2em;
   padding: 5px;
 }
 
-.head-middle-container .store-icon img {
-  width: 35px;
-  height: 35px;
+.head-middle-container #logout-btn {
+  background-color: #fb0707;
+  color: #fff;
+  border: medium none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 13px 30px 13px;
+  text-transform: uppercase;
+  transition: all 0.3s ease 0s;
 
 }
 
@@ -65,11 +72,6 @@ body {
 
 }
 
-.head-middle-container .store-icon {
-  display: flex;
-  box-sizing: border-box;
-  width: 15%;
-}
 
 #icon-svg {
   width: 10px;
