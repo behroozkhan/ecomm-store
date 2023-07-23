@@ -30,7 +30,7 @@
 // })
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getAuth,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import { getAuth,signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 import { getFirestore} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 const firebaseConfig = {
   apiKey: "AIzaSyAOt0YRqCBI5MvtYzZaJiILrjlsA9vWn6w",
@@ -45,6 +45,26 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
   const auth = getAuth();
+ 
+ 
+  onAuthStateChanged(auth, (user) => {
+    if (user && location.pathname !== "../user profile/profile.html") {
+      const uid = user.uid;
+      location.href = "../user profile/profile.html";
+      // location.href = '../login-register/login.js'
+      console.log("uid==>",uid);
+      console.log("location==>",location.href);
+      // ...
+    } else {
+        if(location.pathname !== "../index.html" && location.pathname !== "../user profile/profile.html"){
+          location.href = "../index.html"
+        }
+      console.log("user sign out");
+      // User is signed out
+      // ...
+    }
+  });
+
   let loginBtn =  document.querySelectorAll('#login-button')[0];
   let logIn = ()=>{
       let email = document.querySelectorAll('#email-log')[0].value;
