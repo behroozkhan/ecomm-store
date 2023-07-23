@@ -1,40 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-    <link rel="stylesheet" href="profile.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="profile.css">
 </head>
+
 <body>
-<div class="profile-container">
+  <!-- <div class="navbar-container">
+      <img id="main-logo" src="../images/web-logo.webp" alt="logo">
+    <a href="../index.html"><button id="logout">Logout</button></a>
+  </div> -->
+  <!-- <img id="main-logo" src="../images/web-logo.webp" alt="logo"> -->
+ <!-- middle navbar -->
+ <div class="head-middle-container"> <!-- Added head-middle-center class -->
+  <div class="middle-container">
+      <img id="main-logo" src="../images/web-logo.webp" alt="logo">
+  </div>
+  <nav class="navbar">
+      <ul class="nabar-list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Pages</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+      </ul>
+  </nav>
+  <div class="store-icon">
+      <div class="user-icon">
+          <a id="icon-svg" href="../login-register.html"><img src="../images/user-icon.gif" alt="user-gif"
+                  width="10" height="10"></a>
+      </div>
+      <!-- <div class="heart-icon">
+          <a href="#"><img src="../images/heart-icon.gif" alt="heart-gif"></a>
+      </div>
+      <div class="cart-icon">
+          <a href="#"><img src="../images/cart-icon.gif" alt="cart-gif"></a>
+      </div> -->
+  </div>
+</div>
+<main class="container">
   <div class="card">
-    <div class="card-header"
-  style="background-image: url(https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077482/profile-card/images/profile-picture.png)"
-    >
-          <div class="card-header-bar">
+    <img src="../images/bk linkedin profile.jpg" alt="User image" class="card__image" />
+    <div class="card__text">
+      <h2>Behrooz Khan</h2>
+      <p>I am enjoy to Smash People face and Ass</p>
+    </div>
+     <br><br>
+    <!-- <ul class="card__info">
+      <li>
+        <span class="card__info__stats">172</span>
+        <span>posts</span>
+      </li>
+      <li>
+        <span class="card__info__stats">47</span>
+        <span>followers</span>
+      </li>
+      <li>
+        <span class="card__info__stats">20</span>
+        <span>following</span>
+      </li>
+    </ul> -->
+    <div class="card__action">
+      <button class="card__action__button card__action--follow" id="update-profile">Update Profile</button>
+      <!-- <button class="card__action__button card__action--message">message</button> -->
+    </div>
+  </div>
+</main>
+  <!-- <div class="profile-container">
+    <div class="card">
+      <div class="card-header"
+        style="background-image: url(https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077482/profile-card/images/profile-picture.png)"> -->
+        <!-- <div class="card-header-bar">
             <a href="#" class="btn-message"><span class="sr-only">Message</span></a>
             <a href="#" class="btn-menu"><span class="sr-only">Menu</span></a>
-          </div>
+          </div> -->
 
-          <div class="card-header-slanted-edge">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
-              <a href="#" class="btn-follow"><span class="sr-only">Follow</span></a>
-          </div>
-    </div>
+        <!-- <div class="card-header-slanted-edge">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200">
+            <path class="polygon" d="M-20,200,1000,0V200Z" />
+          </svg>
+          <a href="#" class="btn-follow"><span class="sr-only">Follow</span></a>
+          <input type="file">
+        </div>
+      </div>
 
-    <div class="card-body">
+      <div class="card-body">
         <h2 class="name">John Smith</h2>
-        <h4 class="job-title">Product Designer</h4>
-        <div class="bio">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, aperiam.</div>
+        <h4 class="job-title">Product Designer</h4> -->
+        <!-- <div class="bio">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, aperiam.</div>
         <div class="social-accounts">
           <a href="#"><img src="https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077480/profile-card/images/dribbble.svg" alt=""><span class="sr-only">Dribbble</span></a>
           <a href="#"><img src="https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077480/profile-card/images/twitter.svg" alt=""><span class="sr-only">Twitter</span></a>
           <a href="#"><img src="https://res.cloudinary.com/dj14cmwoz/image/upload/v1491077480/profile-card/images/instagram.svg" alt=""><span class="sr-only">Instagram</span></a>
-        </div>
-    </div>
+        </div> -->
+      <!-- </div>
+      <button id="update-profile">Update Profile</button> -->
 
-    <div class="card-footer">
+      <!-- <div class="card-footer">
         <div class="stats">
             <div class="stat">
               <span class="label">Following</span>
@@ -49,11 +114,12 @@
               <span class="value">320</span>
             </div>
         </div>
-    </div>
-</div>
+    </div> -->
+    <!-- </div>
 
-</div>
+  </div> -->
 
-    <script type="module" src="profile.js"></script>
+  <script type="module" src="profile.js"></script>
 </body>
+
 </html>
