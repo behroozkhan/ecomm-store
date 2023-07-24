@@ -47,21 +47,6 @@ const firebaseConfig = {
   const auth = getAuth();
  
  
-  onAuthStateChanged(auth, (user) => {
-    if (user && location.pathname !== "../user profile/profile.html") {
-      const uid = user.uid;
-      location.href = "../user profile/profile.html";
-      // location.href = '../login-register/login.js'
-      console.log("uid==>",uid);
-      console.log("location==>",location.href);
-      // ...
-    } else {
-      console.log("user sign out");
-      // User is signed out
-      // ...
-    }
-  });
-
   let loginBtn =  document.querySelectorAll('#login-button')[0];
   let logIn = ()=>{
       let email = document.querySelectorAll('#email-log')[0].value;
