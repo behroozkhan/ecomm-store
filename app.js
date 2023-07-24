@@ -71,9 +71,9 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
  onAuthStateChanged(auth, (user) => {
-    if (user && location.pathname !== "./user profile/profile.html") {
+    if (user) {
       const uid = user.uid;
-      location.href = "./user profile/profile.html";
+    //   location.href = "./user profile/profile.html";
       // location.href = '../login-register/login.js'
       console.log("uid==>",uid);
       console.log("location==>",location.href);
