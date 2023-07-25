@@ -30,7 +30,7 @@
 // })
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getAuth,signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import { getAuth,signInWithEmailAndPassword,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 import { getFirestore} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 const firebaseConfig = {
   apiKey: "AIzaSyAOt0YRqCBI5MvtYzZaJiILrjlsA9vWn6w",
@@ -65,4 +65,19 @@ const firebaseConfig = {
       
 
 }
+
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/auth.user
+    const uid = user.uid;
+    window.location.href = '../user profile/profile.html'
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
 loginBtn.addEventListener('click',logIn);
