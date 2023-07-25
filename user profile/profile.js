@@ -1,6 +1,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getAuth,onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut,
+} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import {
+  getFirestore,
+  collection, query, where, getDocs
+} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 // import {
 //   getStorage,
 //   ref,
@@ -15,22 +22,23 @@ const firebaseConfig = {
   storageBucket: "signup-login-74d21.appspot.com",
   messagingSenderId: "167744399342",
   appId: "1:167744399342:web:50d079ab744413004a90ff",
-  measurementId: "G-PQXQJB56F5"
+  measurementId: "G-PQXQJB56F5",
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 
-
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
-  //   location.href = "./user profile/profile.html";
+    //   location.href = "./user profile/profile.html";
     // location.href = '../login-register/login.js'
-    console.log("uid==>",uid);
-    console.log("location==>",location.href);
-    getUserCurrentData(uid)
+    console.log("uid==>", uid);
+    console.log("location==>", location.href);
+    getUserCurrentData(uid, user.email);
+    console.log("user", user);
+    document.getElementById("email").innerHTML = user.email;
     // ...
   } else {
     console.log("user sign out");
@@ -39,38 +47,24 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
+const getUserCurrentData = async (uid , email) => {
 
-const getUserCurrentData = async (uid) => {
-  console.log("uid==>",uid);
-  const docRef = doc(db, "users", uid);
-  const docSnap = await getDoc(docRef);
-  console.log("docSnap", docSnap);
-  if (docSnap.exists()) {
-    let fullName = document.querySelectorAll("#name")[0];
-    let email = document.querySelectorAll("#email")[0];
-    fullName.innerHTML = docSnap.data().fullName;
-    email.innerHTML = docSnap.data().email;
-    console.log("fullName==>", fullName);
-    console.log("email==>", email);
-    //     if (docSnap.data().picture) {
-    //         userProfile.src = docSnap.data().picture
-    //     }
-    // } else {
-    //     fullName.innerHTML = docSnap.data().fullName;
-    //     email.innerHTML = docSnap.data().email;
-    //     if (docSnap.data().picture) {
-    //         userProfile.src = docSnap.data().picture
-    //     }
+console.log(email)
 
-  } else {
-    // docSnap.data() will be undefined in this case
-    console.log("No such document!");
-  }
-}
+const q = query(collection(db, "users"), where("email", "==", email));
+
+const querySnapshot = await getDocs(q);
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+  document.getElementById('name').innerHTML = doc.data().userName
+});
+ 
 
 
-// This Function for fetching data 
+};
 
+// This Function for fetching data
 
 // ---------------------- This File Work Is uploading a file    ---------------------//
 
@@ -107,18 +101,18 @@ const uploadFile = (file) => {
   });
 };
 
-
 //----------------------  This Function for logout Current User --------------------///
 const logoutBtn = document.querySelectorAll("#logout-btn")[0];
-logoutBtn.addEventListener('click', () => {
-  signOut(auth).then(() => {
-    // Sign-out successful.
-    let indexProfile = document.querySelectorAll("#index-profile")[0];
-    indexProfile.style.display = "none"
-    location.href = "../login-register/login-register.html"
-
-  }).catch((error) => {
-    // An error happened.
-    console.log("Error while signing out:", error);
-  });
+logoutBtn.addEventListener("click", () => {
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+      let indexProfile = document.querySelectorAll("#index-profile")[0];
+      indexProfile.style.display = "none";
+      location.href = "../login-register/login-register.html";
+    })
+    .catch((error) => {
+      // An error happened.
+      console.log("Error while signing out:", error);
+    });
 });
