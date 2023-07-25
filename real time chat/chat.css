@@ -37,6 +37,7 @@
     border-radius: 10px 0px 0px 10px;
     display: flex;
     flex-direction: column;
+    color: #ffffff;
 }
 
  #user-profile-img{
@@ -50,12 +51,15 @@
 
 .name-email{
     border: 1px solid black;
+    margin-top: 0.527em;
+    padding: 0.12em;
 }
 
 .name-email #name{
     border: 1px solid black;
     font-size: 1remx;
     text-align: center;
+   
 }
 .name-email #email{
     border: 1px solid black;
@@ -70,17 +74,12 @@
     display: flex;
     gap: 0.25em;
     padding: 0.25em;
+    margin-bottom: 0.560em;
 }
 /* .dashboard #dashboard{
     
 
 } */
-
-
-
-
-
-
 
 /* card Two */
 .card-two{
