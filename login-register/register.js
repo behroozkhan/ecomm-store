@@ -39,7 +39,7 @@ let register = () => {
     .then(async (userCredential) => {
       const user = userCredential.user;
       try {
-        const docRef = await addDoc(collection(db, "users"), {
+        const docRef = await addDoc(collection(db, "users/saylani/student"), {
           ...userlistObj,
           uid: user.uid,
         });
