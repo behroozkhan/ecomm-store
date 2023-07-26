@@ -34,12 +34,12 @@ let register = () => {
     email: email,
     password: password,
   };
-  // const auth = getAuth();
+
   createUserWithEmailAndPassword(auth, userlistObj.email, userlistObj.password)
     .then(async (userCredential) => {
       const user = userCredential.user;
       try {
-        const docRef = await addDoc(collection(db, "users/saylani/student"), {
+        const docRef = await addDoc(collection(db, "users"), {
           ...userlistObj,
           uid: user.uid,
         });
