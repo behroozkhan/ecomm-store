@@ -107,8 +107,8 @@ logoutBtn.addEventListener("click", () => {
   signOut(auth)
     .then(() => {
       // Sign-out successful.
-      let indexProfile = document.querySelectorAll("#index-profile")[0];
-      indexProfile.style.display = "none";
+      // let indexProfile = document.querySelectorAll("#index-profile")[0];
+      // indexProfile.style.display = "none";
       location.href = "../login-register/login-register.html";
     })
     .catch((error) => {
