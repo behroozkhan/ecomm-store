@@ -41,13 +41,10 @@ const updateProfileBtn = document.querySelectorAll("#update-profile")[0];
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
-    //   location.href = "./user profile/profile.html";
-    // location.href = '../login-register/login.js'
     console.log("uid==>", uid);
     console.log("location==>", location.href);
     getUserCurrentData(uid, user.email);
     console.log("user", user);
-    // email.innerHTML = email.value
     document.getElementById("email").innerHTML = user.email;
     // ...
   } else {
