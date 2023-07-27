@@ -3,14 +3,17 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-}
+    
+  }
 
 
 .container{
     display: flex;
     width: 100%;
-    height: 110vh;
+    height: 100vh;
     background: linear-gradient(#edcdfe,#7161ce);
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 .card{
     display: flex;
@@ -42,11 +45,11 @@
 
  #user-profile-img{
     margin: 0 auto;
-    width: 100px;
-  height: 100px;
+    width: 90px;
+  height: 90px;
     border: 1px solid rgb(121, 220, 22);
     border-radius: 50px;
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
 
@@ -55,24 +58,25 @@
     padding: 0.12em;
 }
 
-.name-email #name{
-    font-size: 1remx;
+.name-email .name{
+    font-size: 1rem;
     text-align: center;
    
 }
-.name-email #email{
+.name-email .email{
     font-size: 1rem;
     text-align: center;
 }
 
 .dashboard-container{
-    margin-top: 2em;
+    margin-top: 1em;
 }
 .dashboard,.reports,.employees,.analysis,.messages,.setting{
     display: flex;
     gap: 1em;
     padding: 0.25em;
-    margin-bottom: 0.900em;
+    margin-bottom: 1em;
+    font-size: 0.800em;
 }
 /* .dashboard #dashboard{
     
@@ -123,56 +127,223 @@
   }
   
   #glass {
+    /* border: 1px solid black; */
+    /* padding: 50px; */
     fill: #5f6368;
   }
   
-  /* login Community user */
-  .user-profile{
-    margin-top: 1em;
-  }
-  .user-info {
-    display: flex;
-    align-items: center;
-     /* margin-top: 1em; */
-    border: 1px solid rgb(185, 180, 180);
-    border-top: none ;
-    width: 100%;
-    height: 50px;
+/* login Community user */
+.user-profile {
+  margin-top: 1em;
+}
 
-  }
-  
-  .card__image {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    margin-left: 8px;
-  }
-  
-  #community-user-name {
-    font-size: 16px;
-    margin-left: 0.500rem ;
-  }
-  #timestamp{
-    margin-left: 5em;
-    margin-bottom: 1em;
-  }
+.user-info {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(185, 180, 180);
+  border-top: none;
+  width: 100%;
+  height: 50px;
+  padding: 0.5em;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.card__image {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+
+#community-user-name {
+  font-size: 0.800rem;
+  margin-left: 0.500rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#timestamp {
+  font-size: 0.800rem;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* Add responsive scrollable user list */
+.user-profile {
+  max-height: 71vh; /* Set a maximum height for responsiveness */
+  overflow-y: auto;
+}
 
 #generated-para{
     width: 100%;
     flex-direction: column;
 }
 
-/* card Three */
+/*================== card Three =====================*/
 .card-three{
     border-radius: 0px 10px 10px 0px ;
     background-color:#efefef ;
+    /* border: 1px solid black; */
    
+}
+.card-three .user-nav{
+  display: flex;
+  align-items: center;
+    border-radius: 0px 10px 0px 0px ;
+    background-color:#efefef ;
+    /* border: 1px solid black; */
+    padding: 0.200em;
+   box-shadow: 0px 0px 3px 0px #ffffff; ;
+   background-color: #ffffff;
+}
+
+#chat-app-img{
+    width: 30px;
+  height: auto;
+    border: 1px solid rgb(121, 220, 22);
+    border-radius: 50px;
+}
+.user-nav{
+  /* position: relative; */
+  display: flex;
+  justify-content: space-between;
+  /* background-color: #ffffff; */
+  /* border: 1px solid black; */
+}
+
+.notification{
+
+}
+.img-name-email{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-name{
+  font-size: 1rem;
+  margin-left: 0.500em ;
+}
+.nav-email{
+  font-size: 1rem;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Message Portion user and client */
+
+
+.message-box{
+  height: 410px;
+}
+
+/* Footer Enter message section */
+
+
+/* user and client messages */
+/* CSS */
+.message-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%; 
+}
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin: 8px;
+  border-radius: 10px;
+  max-width: 70%; 
+  margin-top: 1em;
+
+}
+
+.message-content {
+
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 200px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for message containers */
+  /* border: 1px solid black; */
+  
+}
+.message-content span{
+  /* text-align: end; */
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.left-client-side {
+  flex-direction: row; /* Set direction for the client message */
+}
+
+.right-user-side {
+  display: flex;
+  align-self: flex-end;
+  justify-content: end;
+  flex-direction: row-reverse; 
+}
+
+img {
+  border-radius: 50%; /* Make the user images circular */
+  margin-right: 10px; /* Adjust the spacing between the image and the message content */
+  margin-left: 10px; /* Adjust the spacing for the client message image */
+}
+
+/* Additional style to create a chat bubble effect */
+.left-client-side::before,
+.right-user-side::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 20px;
+  bottom: 0;
+  transform: translateY(50%);
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.left-client-side::before {
+  left: -7px;
+}
+
+.right-user-side::before {
+  right: -7px;
 }
 
 
+.msg-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1em;
+  border-radius: 0px 0px 10px ;
+  background-color: #e8e8e8;
+  margin-top: 0.510em;
+/* position: relative; */
+  height: fit-content;
+  /* border: 1px solid black; */
+}
+#message-inp{
+  border: none;
+background: transparent;  
+outline: none;
+}
+.msgs-icons{
+  margin-right: 1em;
+}
+
+.msgs-icons img{
+  margin-right: 0.500em;
+}
 /* icons-chat-profile font size */
 
 .icons-chat-profile{
-    width: 22px;
+  width: 22px;
     height: auto;
 }
