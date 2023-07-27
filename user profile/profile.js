@@ -6,14 +6,14 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 import {
   getFirestore,
-  collection, query, where, getDocs
+  collection, query, where, getDocs,doc,updateDoc
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-// import {
-//   getStorage,
-//   ref,
-//   uploadBytesResumable,
-//   getDownloadURL
-// } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAOt0YRqCBI5MvtYzZaJiILrjlsA9vWn6w",
@@ -29,6 +29,15 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 
+
+const fileInputBtn = document.querySelectorAll("#file-input")[0];
+const userProfile = document.querySelectorAll("#user-profile")[0];
+const updateProfileBtn = document.querySelectorAll("#update-profile")[0];
+// const email = document.querySelectorAll("#email")[0];
+// const userName = document.getElementById("name");
+
+
+
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
@@ -38,18 +47,19 @@ onAuthStateChanged(auth, (user) => {
     console.log("location==>", location.href);
     getUserCurrentData(uid, user.email);
     console.log("user", user);
+    // email.innerHTML = email.value
     document.getElementById("email").innerHTML = user.email;
     // ...
   } else {
     console.log("user sign out");
     // User is signed out
     // ...
-  }
-});
+  }  
+});  
 
 const getUserCurrentData = async (uid , email) => {
 
-console.log(email)
+console.log(email)  
 
 const q = query(collection(db, "users"), where("email", "==", email));
 
@@ -58,15 +68,23 @@ querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
   console.log(doc.id, " => ", doc.data());
   document.getElementById('name').innerHTML = doc.data().userName
-});
+});  
  
-
-
 };
+let updateprofile = () => {
+  
+  
+  
 
-// This Function for fetching data
-
+}
 // ---------------------- This File Work Is uploading a file    ---------------------//
+
+// update Profile //
+
+fileInputBtn.addEventListener("change", () => {
+  console.log(fileInputBtn.files[0])
+  userProfile.src = URL.createObjectURL(fileInputBtn.files[0])
+})
 
 const uploadFile = (file) => {
   return new Promise((resolve, reject) => {
