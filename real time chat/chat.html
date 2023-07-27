@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Time Chatting</title>
+    <!-- font Awesome Cdn -->    
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="chat.css">
 </head>
 <body>
@@ -11,12 +14,14 @@
     <div class="container">
         <div class="card">
             <div class="card-item card-one">
+                <!-- <img src="../images/three-dots.png" alt="" width="30"> -->
+                
                 <!-- <div class="img-data"> -->
                     <img id="user-profile-img" src="../images/bk linkedin profile.jpg" alt="User image" class="card__image"/>
                     <!-- name and email -->
                     <div class="name-email">
-                        <h2 id="name">Behrooz Khan</h2>
-                        <h2 id="email">kbehrooz412@gmailcom</h2>
+                        <h2 class="name">Behrooz Khan</h2>
+                        <h2 class="email">kbehrooz412@gmailcom</h2>
                     </div>
                 <!-- </div> -->
             <!-- Dashboards icons Like pro  -->
@@ -71,42 +76,42 @@
                   </div>
                   <div class="user-info">
                     <img id="community-user" src="../images/bk linkedin profile.jpg" alt="User image" class="card__image" />
-                    <h2 id="community-user-name">Behrooz Khan</h2>
+                    <h2 id="community-user-name">Harry Maguire</h2>
                     <span id="timestamp">1 Min</span>
                   </div>
                   <div class="user-info">
                     <img id="community-user" src="../images/bk linkedin profile.jpg" alt="User image" class="card__image" />
-                    <h2 id="community-user-name">Behrooz Khan</h2>
+                    <h2 id="community-user-name">Witcher Witcher</h2>
                     <span id="timestamp">1 Min</span>
                   </div>
                   <div class="user-info">
                     <img id="community-user" src="../images/bk linkedin profile.jpg" alt="User image" class="card__image" />
-                    <h2 id="community-user-name">Behrooz Khan</h2>
+                    <h2 id="community-user-name">Hasnain Khan</h2>
                     <span id="timestamp">1 Min</span>
                   </div>
                   <div class="user-info">
                     <img id="community-user" src="../images/bk linkedin profile.jpg" alt="User image" class="card__image" />
-                    <h2 id="community-user-name">Behrooz Khan</h2>
+                    <h2 id="community-user-name">Arman Khan</h2>
                     <span id="timestamp">1 Min</span>
                   </div>
                   <div class="user-info">
                     <img id="community-user" src="../images/bk linkedin profile.jpg" alt="User image" class="card__image" />
-                    <h2 id="community-user-name">Behrooz Khan</h2>
+                    <h2 id="community-user-name">Sikander Khan</h2>
                     <span id="timestamp">1 Min</span>
                   </div>
                   <div class="user-info">
                     <img id="community-user" src="../images/bk linkedin profile.jpg" alt="User image" class="card__image" />
-                    <h2 id="community-user-name">Behrooz Khan</h2>
+                    <h2 id="community-user-name">Bruce Wayne</h2>
                     <span id="timestamp">1 Min</span>
                   </div>
                   <div class="user-info">
                     <img id="community-user" src="../images/bk linkedin profile.jpg" alt="User image" class="card__image" />
-                    <h2 id="community-user-name">Behrooz Khan</h2>
+                    <h2 id="community-user-name">Ethan Hunt</h2>
                     <span id="timestamp">1 Min</span>
                   </div>
                   <div class="user-info">
                     <img id="community-user" src="../images/bk linkedin profile.jpg" alt="User image" class="card__image" />
-                    <h2 id="community-user-name">Behrooz Khan</h2>
+                    <h2 id="community-user-name">Nurmagomedov</h2>
                     <span id="timestamp">1 Min</span>
                   </div>
                     <!-- name and email -->
@@ -154,35 +159,61 @@
             <!-- card  -->
             <div class="card-item card-three">
                <div class="user-nav">
-                <img src="" alt="">
-                <h2>Hasnain Khan</h2>
-                <h2>hasnainkhan@gmail.com</h2>
-            </div>
+                <div class="img-name-email">
+                    <img id="chat-app-img" src="../images/bk linkedin profile.jpg" alt="" width="25">
+                    <h2 class="chat-app-name nav-name" class="name">Behrooz Khan</h2>
+                </div>
+                <!-- <h2 class="chat-app-email nav-email" class="email">hasnainkhan@gmail.com</h2> -->
+            
             <div class="notification">
-                <img src="" alt="">
-                <img src="" alt="">
+                <img src="../images/notification-bell.svg" alt="" width="25">
+                <img src="../images/analysis.svg" alt="" width="25">
             </div>
-            <div class="message-box">
+        </div>
+            <!-- <div class="message-box">
                 <div class="left-client-side">
+                    <img src="../images/bk linkedin profile.jpg" alt="" width="25">
                     <p>How Are You</p>
                     <span>10 Mints Ago</span>
                 </div>
                 <div class="right-user-side">
+                    <img src="../images/bk linkedin profile.jpg" alt="" width="25">
                     <p>I'm Fine</p>
                     <span>5 Mints Ago</span>
                 </div>
-            </div>
+            </div> -->
+            <div class="message-box">
+                <div class="left-client-side message">
+                  <img src="../images/goku.jpg" alt="" width="25" height="25">
+                  <div class="message-content">
+                    <p>They Think I Am Hiding The Shadows! But I Am The Shadows.</p>
+                    <span>10 Mins Ago</span>
+                  </div>
+                  
+                </div>
+                <div class="right-user-side message">
+                  <img src="../images/bk linkedin profile.jpg" alt="" width="25" height="25">
+                  <div class="message-content">
+                    <p>Yes! Succes Not Come From The Comfort Zone, I'll Try Push My Self.</p>
+                    <span>5 Mins Ago</span>
+                  </div>
+                </div>
+              </div>
+              
+
+
             <div class="msg-footer">
-                <input type="text">
-                <button>Enter</button>
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
+                <input type="text" id="message-inp" placeholder="Write something here">
+                <div class="msgs-icons">
+                    <img src="../images/link.png" alt="link" width="20">
+                <img src="../images/emoji.svg" alt="" width="20">
+                <img src="../images/cursor.png" alt="cursor" width="20">
+                </div>
             </div>
             </div>
-        </div>
+        <!-- </div>
     </div>
-    </div>
+    </div> -->
 
 
 
