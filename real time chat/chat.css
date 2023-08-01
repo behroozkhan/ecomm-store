@@ -64,7 +64,7 @@
    
 }
 .name-email .email{
-    font-size: 1rem;
+    font-size: 0.900rem;
     text-align: center;
 }
 
@@ -127,8 +127,6 @@
   }
   
   #glass {
-    /* border: 1px solid black; */
-    /* padding: 50px; */
     fill: #5f6368;
   }
   
@@ -147,8 +145,11 @@
   padding: 0.5em;
   box-sizing: border-box;
   overflow: hidden;
+  cursor: pointer;
 }
-
+.user-info:hover{
+  background-color: #efefef;
+}
 .card__image {
   width: 25px;
   height: 25px;

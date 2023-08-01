@@ -68,16 +68,23 @@ querySnapshot.forEach((doc) => {
 });  
  
 };
-let updateprofile = () => {
-  
+
+//----------------------------- update Profile ---------------------------------//
+let updateprofile = async() => {
+  const  fullName = document.querySelectorAll('#name')[0];
+  const  email = document.querySelectorAll('#email')[0];
+  const imageUrl = await uploadFile(file.files[0])
+  const washingtonRef = doc(db, "users", uid);
+  await updateDoc(washingtonRef, {
+      fullName: fullName.value,
+      email: email.value,
+      picture: imageUrl
+  });
   
   
 
 }
 // ---------------------- This File Work Is uploading a file    ---------------------//
-
-// update Profile //
-
 fileInputBtn.addEventListener("change", () => {
   console.log(fileInputBtn.files[0])
   userProfile.src = URL.createObjectURL(fileInputBtn.files[0])
