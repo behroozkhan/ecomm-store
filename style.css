@@ -346,13 +346,13 @@
 
 .home-container {
   /* width: 60%; */
-  width: 90%;
+  width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
   margin-top: 1em;
   padding: 0px;
   font-family: "Poppins", sans-serif;
-  margin-left: 5em;
 }
 
 .home-with-title-img-container {
@@ -651,3 +651,44 @@
   background-color: #e0e0e0;
 }
 /* Section For All Products  */
+.product-area{
+  /* border: 1px solid black; */
+}
+.product-container{
+  border: 1px solid black;
+  display: flex;
+    justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.product-title-container{
+  border: 1px solid black;
+  display: flex;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  width: 50%;
+}
+.product-title-container .product-deal{
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  line-height: 1.56rem;
+    font-size: 0.900rem;
+    font-style: normal;
+    font-weight: 400;
+    color: #000;
+    font-family: "Poppins", sans-serif;
+}
+.product-title-container .product-deal .product-title-deal{
+  border: 1px solid black;
+
+}
+.product-title-container .product-deal  .product-timing{
+  border: 1px solid black;
+  display: flex;
+
+}
+
+
+
