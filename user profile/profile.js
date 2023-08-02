@@ -1,19 +1,7 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import {
-  getAuth,
-  onAuthStateChanged,
-  signOut,
-} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-import {
-  getFirestore,
-  collection, query, where, getDocs,doc,updateDoc
-} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-import {
-  getStorage,
-  ref,
-  uploadBytesResumable,
-  getDownloadURL
-} from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+import { getFirestore, collection, query, where, getDocs, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAOt0YRqCBI5MvtYzZaJiILrjlsA9vWn6w",
@@ -25,14 +13,14 @@ const firebaseConfig = {
   measurementId: "G-PQXQJB56F5",
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth();
 
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const db = getFirestore(app);
+const storage = getStorage();
 
 const fileInputBtn = document.querySelectorAll("#file-input")[0];
 const userProfile = document.querySelectorAll("#user-profile")[0];
-const updateProfileBtn = document.querySelectorAll("#update-profile")[0];
 // const email = document.querySelectorAll("#email")[0];
 // const userName = document.getElementById("name");
 
@@ -70,20 +58,34 @@ querySnapshot.forEach((doc) => {
 };
 
 //----------------------------- update Profile ---------------------------------//
+const updateBtn = document.querySelectorAll("#update-profile")[0];
 let updateprofile = async() => {
+  try{
   const  fullName = document.querySelectorAll('#name')[0];
   const  email = document.querySelectorAll('#email')[0];
   const imageUrl = await uploadFile(file.files[0])
+  const uid = auth.currentUser.uid;
   const washingtonRef = doc(db, "users", uid);
   await updateDoc(washingtonRef, {
       fullName: fullName.value,
       email: email.value,
       picture: imageUrl
   });
-  
-  
-
+  Swal.fire({
+    icon: 'success',
+    title: 'User updated successfully',
+})
+}catch{
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong!',
+    footer: '<a href="">Why do I have this issue?</a>'
+  })
 }
+}
+
+updateBtn.addEventListener('click',updateprofile)
 // ---------------------- This File Work Is uploading a file    ---------------------//
 fileInputBtn.addEventListener("change", () => {
   console.log(fileInputBtn.files[0])
