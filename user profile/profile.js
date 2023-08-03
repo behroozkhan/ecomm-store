@@ -25,7 +25,7 @@ const userProfile = document.querySelectorAll("#user-profile")[0];
 // const userName = document.getElementById("name");
 
 
-
+//-------------- this firebase method check current user login or not  ------------------------//
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
@@ -41,68 +41,130 @@ onAuthStateChanged(auth, (user) => {
     // ...
   }  
 });  
-
+//-------------------- getting all user who login my ecom websute -------------------------------//
 const getUserCurrentData = async (uid , email) => {
-
 console.log(email)  
-
 const q = query(collection(db, "users"), where("email", "==", email));
-
 const querySnapshot = await getDocs(q);
 querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
   console.log(doc.id, " => ", doc.data());
   document.getElementById('name').innerHTML = doc.data().userName
 });  
- 
 };
 
 //----------------------------- update Profile ---------------------------------//
+// let updateprofile = async() => {
+//   try{
+//   const  fullName = document.querySelectorAll('#name')[0];
+//   const  email = document.querySelectorAll('#email')[0];
+//   const imageUrl = await uploadFile(file.files[0])
+//   const uid = auth.currentUser.uid;
+//   const washingtonRef = doc(db, "users", uid);
+//   await updateDoc(washingtonRef, {
+//       fullName: fullName.value,
+//       email: email.value,
+//       picture: imageUrl
+//   });
+//   Swal.fire({
+//     icon: 'success',
+//     title: 'User updated successfully',
+// })
+// }catch{
+//   Swal.fire({
+//     icon: 'error',
+//     title: 'Oops...',
+//     text: 'Something went wrong!',
+//     footer: '<a href="">Why do I have this issue?</a>'
+//   })
+// }
+// }
 const updateBtn = document.querySelectorAll("#update-profile")[0];
-let updateprofile = async() => {
-  try{
-  const  fullName = document.querySelectorAll('#name')[0];
-  const  email = document.querySelectorAll('#email')[0];
-  const imageUrl = await uploadFile(file.files[0])
-  const uid = auth.currentUser.uid;
-  const washingtonRef = doc(db, "users", uid);
-  await updateDoc(washingtonRef, {
-      fullName: fullName.value,
-      email: email.value,
-      picture: imageUrl
-  });
-  Swal.fire({
-    icon: 'success',
-    title: 'User updated successfully',
-})
-}catch{
-  Swal.fire({
-    icon: 'error',
-    title: 'Oops...',
-    text: 'Something went wrong!',
-    footer: '<a href="">Why do I have this issue?</a>'
-  })
-}
-}
+const updateprofile = async () => {
+  try {
+    const fullName = document.querySelectorAll('#name')[0].textContent;
+    const email = document.querySelectorAll('#email').textContent;
+    const file = fileInputBtn.files[0];
+    const imageUrl = await uploadFile(file);
+
+    // Update the user profile in the database with the new information
+    const uid = auth.currentUser.uid;
+    const washingtonRef = doc(db, 'users', uid);
+    await updateDoc(washingtonRef, {
+      fullName: fullName,
+      email: email,
+      picture: imageUrl,
+    });
+
+    // Update the profile image on the page with the new image URL
+    userProfile.src = imageUrl;
+
+    Swal.fire({
+      icon: 'success',
+      title: 'User updated successfully',
+    });
+  } catch {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+      footer: '<a href="">Why do I have this issue?</a>',
+    });
+  }
+};
 
 updateBtn.addEventListener('click',updateprofile)
 // ---------------------- This File Work Is uploading a file    ---------------------//
 fileInputBtn.addEventListener("change", () => {
-  console.log(fileInputBtn.files[0])
-  userProfile.src = URL.createObjectURL(fileInputBtn.files[0])
-})
+  if (fileInputBtn.files.length > 0) {
+    const selectedFile = fileInputBtn.files[0];
+    userProfile.src = URL.createObjectURL(selectedFile);
+  }
+});
+// const uploadFile = (file) => {
+//   return new Promise((resolve, reject) => {
+//     const mountainImagesRef = ref(storage, `images/${file.files[0].name}`);
+//     const uploadTask = uploadBytesResumable(mountainImagesRef, file.files[0]);
+//     uploadTask.on(
+//       "state_changed",
+//       (snapshot) => {
+//         // Observe state change events such as progress, pause, and resume
+//         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+//         const progress =
+//           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+//         console.log("Upload is " + progress + "% done");
+//         switch (snapshot.state) {
+//           case "paused":
+//             console.log("Upload is paused");
+//             break;
+//           case "running":
+//             console.log("Upload is running");
+//             break;
+//         }
+//       },
+//       (error) => {
+//         reject(error);
+//       },
+//       () => {
+//         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+//           resolve(downloadURL);
+//         });
+//       }
+//     );
+//   });
+// };
 
+//----------------------  This Function for logout Current User --------------------///
 const uploadFile = (file) => {
   return new Promise((resolve, reject) => {
-    const mountainImagesRef = ref(storage, `images/${file.files[0].name}`);
-    const uploadTask = uploadBytesResumable(mountainImagesRef, file.files[0]);
+    const mountainImagesRef = ref(storage, `images/${file.name}`);
+    const uploadTask = uploadBytesResumable(mountainImagesRef, file);
     uploadTask.on(
       "state_changed",
       (snapshot) => {
         // Observe state change events such as progress, pause, and resume
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        const progress =
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         console.log("Upload is " + progress + "% done");
         switch (snapshot.state) {
           case "paused":
@@ -117,15 +179,19 @@ const uploadFile = (file) => {
         reject(error);
       },
       () => {
+        // Upload is complete, resolve with the download URL
+        // getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        //   resolve(downloadURL);
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           resolve(downloadURL);
+          console.log('File available at', downloadURL);
         });
       }
     );
   });
 };
 
-//----------------------  This Function for logout Current User --------------------///
+
 const logoutBtn = document.querySelectorAll("#logout-btn")[0];
 logoutBtn.addEventListener("click", () => {
   signOut(auth)
