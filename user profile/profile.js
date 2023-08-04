@@ -32,6 +32,7 @@ onAuthStateChanged(auth, (user) => {
     console.log("uid==>", uid);
     console.log("location==>", location.href);
     getUserCurrentData(uid, user.email);
+    updateprofile()
     console.log("user", user);
     document.getElementById("email").innerHTML = user.email;
     // ...
@@ -39,18 +40,18 @@ onAuthStateChanged(auth, (user) => {
     console.log("user sign out");
     // User is signed out
     // ...
-  }  
-});  
+  }
+});
 //-------------------- getting all user who login my ecom websute -------------------------------//
-const getUserCurrentData = async (uid , email) => {
-console.log(email)  
-const q = query(collection(db, "users"), where("email", "==", email));
-const querySnapshot = await getDocs(q);
-querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
-  document.getElementById('name').innerHTML = doc.data().userName
-});  
+const getUserCurrentData = async (uid, email) => {
+  console.log(email)
+  const q = query(collection(db, "users"), where("email", "==", email));
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", doc.data());
+    document.getElementById('name').innerHTML = doc.data().userName
+  });
 };
 
 //----------------------------- update Profile ---------------------------------//
@@ -80,30 +81,46 @@ querySnapshot.forEach((doc) => {
 // }
 // }
 const updateBtn = document.querySelectorAll("#update-profile")[0];
-const updateprofile = async () => {
+const updateprofile = async (uid) => {
   try {
-    const fullName = document.querySelectorAll('#name')[0].textContent;
-    const email = document.querySelectorAll('#email').textContent;
+    uid = auth.currentUser.uid;
+    // const fullName = document.querySelectorAll('#name')[0];
+    // const email = document.querySelectorAll('#email')[0];
+    let userName = document.getElementById("name").innerText;
+    let email = document.getElementById("email").innerText;
     const file = fileInputBtn.files[0];
     const imageUrl = await uploadFile(file);
 
-    // Update the user profile in the database with the new information
-    const uid = auth.currentUser.uid;
-    const washingtonRef = doc(db, 'users', uid);
+    console.log("fullName==>", userName);
+    console.log("email==>", email);
+    console.log("file==>", file);
+    console.log("imageurl==>", imageUrl);
+    console.log("uid==>", uid);
+
+    const washingtonRef = doc(db, "users", uid);
     await updateDoc(washingtonRef, {
-      fullName: fullName,
-      email: email,
-      picture: imageUrl,
+      picture:imageUrl
     });
 
-    // Update the profile image on the page with the new image URL
-    userProfile.src = imageUrl;
+    console.log("washingtonRef==>",washingtonRef);
+    // Update the user profile in the database with the new information
+    // const uid = auth.currentUser.uid;
+    // const washingtonRef = doc(db, 'users', uid);
+    // await updateDoc(washingtonRef, {
+    //   fullName: fullName,
+    //   email: email,
+    //   picture: imageUrl,
+    // });
+
+    // // Update the profile image on the page with the new image URL
+    // userProfile.src = imageUrl;
 
     Swal.fire({
       icon: 'success',
       title: 'User updated successfully',
     });
-  } catch {
+  } catch(error) {
+    console.log("error",error);
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
@@ -113,14 +130,17 @@ const updateprofile = async () => {
   }
 };
 
-updateBtn.addEventListener('click',updateprofile)
+updateBtn.addEventListener('click', updateprofile)
+
+
+
 // ---------------------- This File Work Is uploading a file    ---------------------//
 fileInputBtn.addEventListener("change", () => {
-  if (fileInputBtn.files.length > 0) {
     const selectedFile = fileInputBtn.files[0];
     userProfile.src = URL.createObjectURL(selectedFile);
-  }
 });
+
+// ----------------- Ready Method Function For Uploading File Using in fileInputBtn------------------------//
 // const uploadFile = (file) => {
 //   return new Promise((resolve, reject) => {
 //     const mountainImagesRef = ref(storage, `images/${file.files[0].name}`);
@@ -162,8 +182,6 @@ const uploadFile = (file) => {
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        // Observe state change events such as progress, pause, and resume
-        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         console.log("Upload is " + progress + "% done");
         switch (snapshot.state) {
@@ -191,7 +209,7 @@ const uploadFile = (file) => {
   });
 };
 
-
+// -------- This  function logout current login User And Redirect to login Page -----------------//
 const logoutBtn = document.querySelectorAll("#logout-btn")[0];
 logoutBtn.addEventListener("click", () => {
   signOut(auth)
@@ -202,7 +220,6 @@ logoutBtn.addEventListener("click", () => {
       location.href = "../login-register/login-register.html";
     })
     .catch((error) => {
-      // An error happened.
       console.log("Error while signing out:", error);
     });
 });
