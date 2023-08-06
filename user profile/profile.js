@@ -50,7 +50,9 @@ const getUserCurrentData = async (uid, email) => {
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
     console.log(doc.id, " => ", doc.data());
-    document.getElementById('name').innerHTML = doc.data().userName
+    console.log("a"+doc.data().userName);
+    document.getElementById('name').innerText = doc.data().userName;
+    console.log("b"+document.getElementById('name').innerText)
   });
 };
 
@@ -84,31 +86,32 @@ const updateBtn = document.querySelectorAll("#update-profile")[0];
 const updateprofile = async (uid) => {
   try {
     uid = auth.currentUser.uid;
-    // const fullName = document.querySelectorAll('#name')[0];
-    // const email = document.querySelectorAll('#email')[0];
-    let userName = document.getElementById("name").innerText;
-    let email = document.getElementById("email").innerText;
-    const file = fileInputBtn.files[0];
-    const imageUrl = await uploadFile(file);
+    const userName = document.querySelectorAll('#name')[0].innerText;
+    console.log("a"+userName+"a");
+    const email = document.querySelectorAll('#email')[0].innerHTML;
+    // let userName = document.getElementById("name").innerText;
+    // let email = document.getElementById("email").innerText;
+    // const file = fileInputBtn.files[0];
+    // const imageUrl = await uploadFile(file);
 
     console.log("fullName==>", userName);
     console.log("email==>", email);
-    console.log("file==>", file);
-    console.log("imageurl==>", imageUrl);
+    // console.log("file==>", file);
+    // console.log("imageurl==>", imageUrl);
     console.log("uid==>", uid);
 
-    const washingtonRef = doc(db, "users", uid);
-    await updateDoc(washingtonRef, {
-      picture:imageUrl
-    });
+    // const washingtonRef = doc(db, "users", uid);
+    // await updateDoc(washingtonRef, {
+    //   picture:imageUrl
+    // });
 
-    console.log("washingtonRef==>",washingtonRef);
+    // console.log("washingtonRef==>",washingtonRef);
     // Update the user profile in the database with the new information
     // const uid = auth.currentUser.uid;
     // const washingtonRef = doc(db, 'users', uid);
     // await updateDoc(washingtonRef, {
-    //   fullName: fullName,
-    //   email: email,
+    //   fullName: userName.value,
+    //   email: email.value,
     //   picture: imageUrl,
     // });
 
@@ -119,6 +122,7 @@ const updateprofile = async (uid) => {
       icon: 'success',
       title: 'User updated successfully',
     });
+
   } catch(error) {
     console.log("error",error);
     Swal.fire({
@@ -133,10 +137,59 @@ const updateprofile = async (uid) => {
 updateBtn.addEventListener('click', updateprofile)
 
 
+// const updateprofile = async () => {
+//   try {
+//     onAuthStateChanged(auth, async (user) => {
+//       if (user) {
+//         const uid = user.uid;
+//         const userName = document.querySelectorAll("#name")[0].innerText;
+//         const email = document.querySelectorAll("#email")[0].innerText;
+//         const file = fileInputBtn.files[0];
+//         const imageUrl = await uploadFile(file);
+
+//         console.log("userName==>", userName);
+//         console.log("email==>", email);
+//         console.log("file==>", file);
+//         console.log("imageUrl==>", imageUrl);
+//         console.log("uid==>", uid);
+
+//         const washingtonRef = doc(db, "users", uid);
+//         await updateDoc(washingtonRef, {
+//           userName: userName,
+//           email: email,
+//           picture: imageUrl,
+//         });
+
+//         // Update the profile image on the page with the new image URL
+//         userProfile.src = imageUrl;
+
+//         Swal.fire({
+//           icon: "success",
+//           title: "User updated successfully",
+//         });
+//       } else {
+//         console.log("User not logged in");
+//       }
+//     });
+//   } catch (error) {
+//     console.log("error", error);
+//     Swal.fire({
+//       icon: "error",
+//       title: "Oops...",
+//       text: "Something went wrong!",
+//       footer: '<a href="">Why do I have this issue?</a>',
+//     });
+//   }
+// };
+
+
+updateBtn.addEventListener('click', updateprofile)
+
 
 // ---------------------- This File Work Is uploading a file    ---------------------//
 fileInputBtn.addEventListener("change", () => {
     const selectedFile = fileInputBtn.files[0];
+    console.log("selctedFile==>",selectedFile);
     userProfile.src = URL.createObjectURL(selectedFile);
 });
 
@@ -203,6 +256,7 @@ const uploadFile = (file) => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           resolve(downloadURL);
           console.log('File available at', downloadURL);
+
         });
       }
     );
